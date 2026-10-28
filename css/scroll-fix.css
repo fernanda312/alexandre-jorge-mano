@@ -147,3 +147,64 @@ img {
     height: auto !important;
   }
 }
+
+/* ALEXANDRE — 2026-10-28, a pedido da utilizadora:
+ * 1) HERO MAIS BAIXO, SEM ZOOM. A foto continua inteira (contain),
+ * só desce: um espaço escuro em cima empurra a foto para baixo.
+ * 2) SECÇÃO ESTILO AROCK, NA TIPOLOGIA DO SITE DO JORGE. Foto
+ * inteira, sem zoom nem cortes, com o nome gigante por cima —
+ * como no AROCK, mas no dourado e no fundo escuro do site do Jorge,
+ * para não destoar. Sem botão de vídeo falso: não há vídeo dele. */
+.section-intro .intro-wrapper {
+  padding-top: 9vh !important;
+}
+.arock-showcase {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1c1c1c;
+  overflow: hidden;
+}
+.arock-showcase img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain !important;
+}
+.arock-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(64px, 18vw, 220px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #dac7a4;
+}
+.arock-meta {
+  position: absolute;
+  bottom: 2rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ece5d8;
+}
+@media (max-width: 760px) {
+  .arock-showcase {
+    height: 92vh;
+  }
+  .arock-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
