@@ -151,7 +151,7 @@
 .header__logo { max-width: 190px !important; width: 190px !important; }
 .header__logo svg { width: 100% !important; height: auto !important; }
 
-/* Só o hero: foto começa no topo, sem borda preta, sem ampliar nem cortar */
-.section-intro { height: auto !important; min-height: 0 !important; }
-.section-intro .intro-wrapper { height: auto !important; background: #000; }
-.parallax-image { object-fit: contain !important; height: auto !important; width: 100% !important; display: block; }
+/* Só o hero: volta a encher o ecrã, sem borda preta e sem o AJMANO na cabeça */
+.section-intro { height: 100vh !important; min-height: 0 !important; }
+.section-intro .intro-wrapper { height: 100% !important; background: #000; }
+.parallax-image { object-fit: cover !important; object-position: center center !important; height: 100vh !important; width: 100% !important; display: block; }
