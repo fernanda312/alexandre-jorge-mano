@@ -146,3 +146,7 @@
 .section-desc .line-seperate { margin: 2rem 0 !important; }
 .section-desc .p-desc { opacity: 1 !important; transform: none !important; translate: none !important; color: #fff !important; font-style: italic; margin-top: 1.5rem !important; line-height: 1.6; }
 
+
+/* Só o AJMANO do topo, maior */
+.header__logo { max-width: 190px !important; width: 190px !important; }
+.header__logo svg { width: 100% !important; height: auto !important; }
