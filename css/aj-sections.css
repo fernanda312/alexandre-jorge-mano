@@ -1,0 +1,94 @@
+/* AJMANO — novas secções depois do hero e de "Alexandre é mais do que um empresário".
+ * Hero e essa secção ficam intocados. Estas regras só tocam nas secções novas. */
+.aj-section { background: #1c1c1c; color: #fff; padding: 4rem 1rem; }
+.aj-section .container { max-width: 92%; margin: 0 auto; }
+.aj-title {
+  font-family: Georgia, "Times New Roman", serif; color: #dac7a4;
+  font-size: 2.2rem; line-height: 1.1; margin: 0 0 1rem; text-align: center;
+}
+.aj-intro {
+  font-family: Georgia, "Times New Roman", serif; color: #fff;
+  font-size: 1.1rem; line-height: 1.6; text-align: center; max-width: 34rem; margin: 0 auto 2.5rem;
+}
+/* Vídeos em botão */
+.aj-videos { display: flex; flex-direction: column; gap: 2rem; align-items: center; }
+.aj-video-btn {
+  position: relative; display: block; width: 100%; max-width: 520px; padding: 0;
+  border: 1px solid #dac7a4; background: #000; cursor: pointer; overflow: hidden;
+}
+.aj-video-btn img { width: 100%; height: auto; display: block; object-fit: contain; }
+.aj-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 72px; height: 72px; line-height: 72px; border-radius: 50%;
+  background: rgba(255,255,255,.92); color: #1c1c1c; font-size: 1.6rem; text-align: center;
+}
+.aj-video-title {
+  display: block; padding: 1rem; background: #1c1c1c; color: #fff;
+  font-family: Georgia, "Times New Roman", serif; font-size: 1.1rem; text-align: center;
+}
+.aj-video-modal {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.92); align-items: center; justify-content: center; padding: 1rem;
+}
+.aj-video-modal.aj-open { display: flex; }
+.aj-video-modal video { width: 100%; max-width: 520px; max-height: 80vh; background: #000; }
+.aj-video-close {
+  position: absolute; top: 1rem; right: 1rem; background: #dac7a4; color: #1c1c1c;
+  border: none; width: 44px; height: 44px; font-size: 1.5rem; cursor: pointer;
+}
+/* Jornal: uma à esquerda, outra à direita, texto branco, outra tipologia */
+.aj-jornal { background: #252525; }
+.aj-news-item { display: flex; flex-direction: column; gap: 1rem; margin: 0 auto 3.5rem; max-width: 520px; }
+.aj-news-item img { width: 100%; height: auto; object-fit: contain; }
+.aj-news-item h3 {
+  font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.6rem; margin: 0;
+}
+.aj-news-item p {
+  font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.15rem; line-height: 1.7; margin: 0;
+}
+.aj-left { align-items: flex-start; text-align: left; }
+.aj-right { align-items: flex-end; text-align: right; }
+.aj-destaque { color: #dac7a4; font-size: 1.25em; font-style: normal; font-weight: 700; }
+/* Projetos */
+.aj-projetos { display: flex; flex-direction: column; gap: 2.5rem; align-items: center; }
+.aj-projeto { max-width: 520px; }
+.aj-projeto img { width: 100%; height: auto; object-fit: contain; margin-bottom: 1rem; }
+.aj-projeto h3 { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.5rem; margin: 0 0 .5rem; }
+.aj-projeto p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.1rem; line-height: 1.7; margin: 0; }
+/* Rolo de fotografias, como capturado em câmara */
+.aj-film {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 1.5rem 1rem; background: #000;
+  border-top: 3px dashed #333; border-bottom: 3px dashed #333;
+  -webkit-overflow-scrolling: touch;
+}
+.aj-film figure { flex: 0 0 auto; margin: 0; scroll-snap-align: center; text-align: center; }
+.aj-film img { height: 320px; width: auto; max-width: 90vw; object-fit: contain; border: 6px solid #111; outline: 1px solid #dac7a4; background: #111; }
+.aj-film figcaption { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: .9rem; margin-top: .5rem; }
+/* Scroll de palavras em degradê */
+.aj-marquee { overflow: hidden; background: #1c1c1c; padding: 1.5rem 0; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+.aj-marquee-inner { display: inline-block; white-space: nowrap; animation: aj-scroll 22s linear infinite; }
+.aj-marquee-inner span {
+  font-family: Georgia, "Times New Roman", serif; font-weight: 900; font-size: 2rem; text-transform: uppercase; letter-spacing: .05em;
+  background: linear-gradient(90deg, #dac7a4, #fff, #b8860b, #dac7a4);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+@keyframes aj-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* Livro que se abre */
+.aj-book {
+  position: relative; max-width: 520px; min-height: 420px; margin: 0 auto;
+  perspective: 1200px; cursor: pointer; background: #2b2118;
+  border: 2px solid #dac7a4; padding: 2rem 1.5rem; overflow: hidden;
+}
+.aj-page { display: none; }
+.aj-page.aj-active { display: block; animation: aj-page-in .5s ease; }
+@keyframes aj-page-in { from { opacity: 0; transform: translateX(40px) rotateY(-8deg); } to { opacity: 1; transform: none; } }
+.aj-page h3 { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.8rem; margin: 0 0 1rem; }
+.aj-page p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.15rem; line-height: 1.7; }
+.aj-book-kicker { color: #dac7a4; letter-spacing: .2em; text-transform: uppercase; }
+.aj-book-hint { color: #dac7a4; margin-top: 2rem; }
+.aj-book-controls { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
+.aj-book-controls button {
+  background: #dac7a4; color: #1c1c1c; border: none; padding: .8rem 1.2rem;
+  font-family: Georgia, "Times New Roman", serif; font-size: 1rem; cursor: pointer;
+}
