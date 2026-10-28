@@ -1,11 +1,10 @@
-/* JERRY · Maputo — correção do scroll (2026-10-28, ver js/scroll-fix.js).
- * O preloader já vem escondido na cópia estática, por isso nunca pode
- * tapar a página nem bloquear o scroll. O scroll em si fica desbloqueado
- * quando o html tem a classe "active" (regra original do app.css); esta
- * regra só garante isso mesmo que o JavaScript original tire a classe
- * no arranque. O menu continua a bloquear o scroll enquanto estiver
- * aberto, como no original: essa regra é do próprio app.css e não é
- * tocada aqui. */
+/* AJMANO — fiel ao original finedineclub.
+ * Só isto muda o comportamento, nada do desenho:
+ * - o preloader já vem escondido na cópia estática, por isso nunca
+ *   pode tapar a página nem bloquear o scroll;
+ * - o scroll fica desbloqueado quando o html tem a classe "active";
+ * - o vídeo da secção de vídeo enche a faixa, como a imagem original;
+ * - redes sociais no menu e no rodapé, a dourado, como os links do original. */
 html.active {
   overflow: auto !important;
 }
@@ -13,23 +12,20 @@ html.active {
   display: none !important;
   pointer-events: none !important;
 }
-
-/* ALEXANDRE JORGE MANO — mesmo desenho do JERRY, com as redes visíveis.
- * Hero: a foto do JERRY enchia o ecrã (object-fit: cover). A foto do
- * Alexandre é vertical (1638x2048), maior do que o ecrã do telemóvel,
- * por isso encher o ecrã não lhe tira qualidade; esta posição mostra
- * o rosto no topo, também no computador, onde o enquadramento corta
- * mais em cima e em baixo. O ficheiro da foto não foi cortado. */
-.section-intro .intro-wrapper .parallax-image {
-  object-position: center 18%;
+.concept-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-/* Redes sociais: no menu e no rodapé, bem visíveis, a dourado */
 .menu-social {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
   justify-content: center;
   margin-top: 2rem;
+  list-style: none;
+  padding: 0;
 }
 .menu-social a, .footer-social a {
   color: #dac7a4;
@@ -46,260 +42,4 @@ html.active {
   flex-wrap: wrap;
   gap: 1rem 1.5rem;
   justify-content: center;
-}
-
-/* ALEXANDRE — correção 2026-10-28, a pedido da utilizadora:
- * 1) HERO SEM ZOOM E SEM CORTES LATERAIS. O hero do JERRY enchia o
- * ecrã com a foto cortada (object-fit: cover). Aqui a foto fica
- * distante, inteira, centrada, com fundo escuro à volta — vê-se o
- * homem todo, do cabelo aos ombros, sem cortar os lados e sem
- * espelhar (nenhuma imagem é virada: transform: scaleX nunca é usado).
- * 2) NO TELEMÓVEL, AS COLEÇÕES DEIXAM DE SER HORIZONTAIS. Os cartões
- * empilham um debaixo do outro, com a foto inteira e o texto por
- * baixo, para não haver sobreposição de títulos sobre fotos nem
- * fotos cortadas a meio, como nas capturas da utilizadora. */
-.section-intro {
-  height: auto !important;
-  min-height: 0 !important;
-}
-.section-intro .intro-wrapper {
-  height: auto !important;
-}
-.section-intro .intro-wrapper .parallax-image {
-  height: auto !important;
-  max-height: 72vh !important;
-  width: 100% !important;
-  object-fit: contain !important;
-  object-position: center center !important;
-}
-.section-intro .intro-wrapper img {
-  height: auto !important;
-}
-img {
-  transform: none !important;
-}
-/* Descrição visível em cada cartão (no JERRY só aparecia ao clicar) */
-.card-desc {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #ece5d8;
-  margin: 1rem 0 0;
-  max-width: 34rem;
-}
-.collection-card .card-desc {
-  padding: 0 1rem 1rem;
-}
-@media (max-width: 760px) {
-  .collection-horizontal,
-  .collection-horizontal-first,
-  .collection-horizontal-full {
-    height: auto !important;
-    padding: 2rem 1rem !important;
-    width: 100% !important;
-    overflow: visible !important;
-  }
-  .collection-horizontal-wrapper {
-    flex-direction: column !important;
-    gap: 2rem !important;
-    height: auto !important;
-  }
-  .collection-horizontal .horizontal-container {
-    height: auto !important;
-    margin: 0 !important;
-    width: 100% !important;
-    overflow: visible !important;
-  }
-  .section-horizontal {
-    flex-direction: column !important;
-    gap: 2.5rem !important;
-    min-width: 0 !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-  .collection-card {
-    width: 100% !important;
-    height: auto !important;
-  }
-  .collection-card-wrapper {
-    height: auto !important;
-  }
-  .collection-card-wrapper img,
-  .tile__img {
-    height: auto !important;
-    max-height: 70vh !important;
-    object-fit: contain !important;
-  }
-  .collection-horizontal-full {
-    margin: 0 !important;
-  }
-  .collection-horizontal-full img {
-    height: auto !important;
-    max-height: 70vh !important;
-    object-fit: contain !important;
-  }
-  .pin-spacer {
-    height: auto !important;
-    padding: 0 !important;
-  }
-  .concept-video video,
-  .concept-video img,
-  .concept-video .thumbnail-modal {
-    height: auto !important;
-  }
-}
-
-/* ALEXANDRE — 2026-10-28, a pedido da utilizadora:
- * 1) HERO MAIS BAIXO, SEM ZOOM. A foto continua inteira (contain),
- * só desce: um espaço escuro em cima empurra a foto para baixo.
- * 2) SECÇÃO ESTILO AROCK, NA TIPOLOGIA DO SITE DO JORGE. Foto
- * inteira, sem zoom nem cortes, com o nome gigante por cima —
- * como no AROCK, mas no dourado e no fundo escuro do site do Jorge,
- * para não destoar. Sem botão de vídeo falso: não há vídeo dele. */
-.section-intro .intro-wrapper {
-  padding-top: 9vh !important;
-}
-.arock-showcase {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #1c1c1c;
-  overflow: hidden;
-}
-.arock-showcase img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain !important;
-}
-.arock-name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  font-size: clamp(64px, 18vw, 220px);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: #dac7a4;
-}
-.arock-meta {
-  position: absolute;
-  bottom: 2rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #ece5d8;
-}
-@media (max-width: 760px) {
-  .arock-showcase {
-    height: 92vh;
-  }
-  .arock-meta {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-/* ALEXANDRE — 2026-10-28, após verificação: as coleções horizontais
- * do JERRY cortavam o terceiro cartão à direita e exigiam scroll
- * horizontal, e as faixas de largura total cortavam as fotos.
- * Por isso as coleções passam a empilhar em TODAS as larguras
- * (não só no telemóvel) e a faixa larga mostra a foto inteira. */
-.collection-horizontal,
-.collection-horizontal-first {
-  height: auto !important;
-  padding: 2rem 1rem !important;
-  width: 100% !important;
-  overflow: visible !important;
-}
-.collection-horizontal-wrapper {
-  flex-direction: column !important;
-  gap: 2rem !important;
-  height: auto !important;
-}
-.collection-horizontal .horizontal-container {
-  height: auto !important;
-  margin: 0 !important;
-  width: 100% !important;
-  overflow: visible !important;
-}
-.section-horizontal {
-  flex-direction: column !important;
-  gap: 2.5rem !important;
-  min-width: 0 !important;
-  width: 100% !important;
-  height: auto !important;
-}
-.collection-card {
-  width: 100% !important;
-  height: auto !important;
-}
-.collection-card-wrapper {
-  height: auto !important;
-}
-.collection-horizontal-full {
-  margin: 0 !important;
-  height: auto !important;
-}
-.collection-horizontal-full img {
-  height: auto !important;
-  max-height: 80vh !important;
-  width: 100% !important;
-  object-fit: contain !important;
-}
-
-/* Vídeos do Alexandre (Instagram, enviados pela utilizadora):
- * verticais, inteiros, sem zoom nem cortes, com play do próprio vídeo. */
-.aj-videos {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-.aj-videos video {
-  width: 100%;
-  max-width: 420px;
-  max-height: 75vh;
-  object-fit: contain;
-  background: #000;
-}
-.arock-link {
-  color: #dac7a4;
-  text-decoration: none;
-}
-
-/* Galeria nova (12 fotos) + hero mais baixo de verdade:
- * a margem empurra a foto para baixo e o "Descer" passa para
- * baixo da foto, em vez de ficar por cima dela. */
-.section-intro .intro-wrapper .parallax-image {
-  margin-top: 10vh !important;
-  max-height: 62vh !important;
-}
-.section-intro .intro-scroll {
-  position: relative !important;
-  bottom: auto !important;
-  margin-top: 1rem;
-}
-.aj-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-.aj-gallery img {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  object-fit: contain;
 }
