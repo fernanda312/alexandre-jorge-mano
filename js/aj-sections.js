@@ -58,3 +58,15 @@
     film.scrollTo({ left: target, behavior: "smooth" });
   }, 3000);
 })();
+
+/* Título da desc: entra quando aparece no ecrã ao arrastar */
+(function () {
+  var t = document.querySelector(".desc-title");
+  if (!t) return;
+  function show() { t.classList.add("aj-in"); }
+  if (!("IntersectionObserver" in window)) { show(); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { show(); io.disconnect(); } });
+  }, { threshold: 0.2 });
+  io.observe(t);
+})();
