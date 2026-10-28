@@ -97,9 +97,9 @@
  * foto em ecrã inteiro, nome gigante por cima, em baixo à esquerda o botão de play
  * com "Jogar o filme", ao meio Empresário / Consultor, à direita Maputo / Moçambique. */
 .aj-arock-video {
-  position: relative; height: 100vh; min-height: 640px; overflow: hidden; background: #1c1c1c;
+  position: relative; height: 100vh; min-height: 640px; overflow: hidden; background: #000;
 }
-.aj-arock-video img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.aj-arock-video img { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
 .aj-arock-name {
   position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
   text-align: center; margin: 0; color: #fff;
