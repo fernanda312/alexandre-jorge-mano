@@ -49,10 +49,16 @@
   film.addEventListener("wheel", function () { lastTouch = Date.now(); }, { passive: true });
   setInterval(function () {
     if (Date.now() - lastTouch < 8000) return;
-    if (film.scrollLeft + film.clientWidth >= film.scrollWidth - 10) {
-      film.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      var first = film.querySelector("figure"); film.scrollBy({ left: first ? first.clientWidth : film.clientWidth, behavior: "smooth" });
-    }
+    var figs = film.querySelectorAll("figure");
+    if (!figs.length) return;
+    // Foto mais perto do centro agora, para avançar sempre para a seguinte, mesmo depois de arrastares
+    var center = film.scrollLeft + film.clientWidth / 2, cur = 0, best = 1e9;
+    figs.forEach(function (fg, i) {
+      var c = fg.offsetLeft + fg.clientWidth / 2, d = Math.abs(c - center);
+      if (d < best) { best = d; cur = i; }
+    });
+    var next = figs[(cur + 1) % figs.length];
+    var target = next.offsetLeft + next.clientWidth / 2 - film.clientWidth / 2;
+    film.scrollTo({ left: target, behavior: "smooth" });
   }, 3000);
 })();
