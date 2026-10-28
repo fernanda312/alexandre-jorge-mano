@@ -413,89 +413,153 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         </div>
       </section>
 
-      <section class="concept-video cursor-container">
-        <div class="video-wrapper">
-                    <video class="thumbnail-modal" controls playsinline poster="images/video-poster.jpg" src="videos/video-investir-mocambique.mp4"></video>
-        </div>
-      </section>
+            <!-- NOVAS SECÇÕES (depois do hero e de "Alexandre é mais do que um empresário", que ficam intocados) -->
 
-      <section id="ajmano" class="concept-collection collection-horizontal collection-horizontal-first">
-        <div class="collection-horizontal-wrapper">
-          <div class="horizontal-container swiper">
-            <h2 class="collection-title" style=""><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"> ALEXANDRE </div></div></div></div></div></div><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;">JORGE MANO </div></div></div></div></div></div></h2>
-            <div class="section-horizontal swiper-wrapper">
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> Empresário </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#221b17" data-desc="Fundador e CEO da AJMANO Consultores, em Maputo — a empresa que facilita o investimento em Moçambique, com assessoria estratégica, identificação de oportunidades e apoio legal, fiscal e regulamentar.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/alexandre-gravata-azul.jpg" alt="Empresário" data-hover="images/alexandre-gravata-azul.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> Consultor </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#082026" data-desc="Consultoria empresarial e comunicação estratégica, com foco em inovação disruptiva e em abrir portas a empresas e investidores que querem entrar em Moçambique.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/alexandre-maos-cruzadas.jpg" alt="Consultor" data-hover="images/alexandre-maos-cruzadas.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> Orador </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#050808" data-desc="Orador em eventos e painéis em Moçambique, sobre liderança, inovação e investimento — do MozTech ao COMARP Talks, sempre com o microfone na mão.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/alexandre-oculos-camisa.jpg" alt="Orador" data-hover="images/alexandre-oculos-camisa.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                          </div>
-          </div>
-
-          <div class="collection-horizontal-full">
-            <div class="overlay-gradient-gray"></div>
-            <picture>
-              <source srcset="images/moztech.jpg" type="image/jpeg">
-              <img class="tile__img" src="images/moztech.jpg" alt="Alexandre Jorge Mano, orador" draggable="false">
-            </picture>
+      <section id="videos" class="aj-section">
+        <div class="container">
+          <h2 class="aj-title">Em Vídeo.</h2>
+          <p class="aj-intro">Toca no botão de play de cada vídeo para o veres. Os vídeos abrem em ecrã, sem faixas vazias.</p>
+          <div class="aj-videos">
+            <button class="aj-video-btn" type="button" data-video="videos/video-investir-mocambique.mp4" aria-label="Ver vídeo Investir em Moçambique">
+              <img src="images/video-poster.jpg" alt="Alexandre a falar, Investir em Moçambique">
+              <span class="aj-play">▶</span>
+              <span class="aj-video-title">Investir em Moçambique</span>
+            </button>
+            <button class="aj-video-btn" type="button" data-video="videos/video-inovacao-lider.mp4" aria-label="Ver vídeo Inovação distingue um líder de um seguidor">
+              <img src="images/video-poster-inovacao.jpg" alt="Alexandre com a frase Inovação distingue um líder de um seguidor">
+              <span class="aj-play">▶</span>
+              <span class="aj-video-title">Inovação distingue um líder de um seguidor</span>
+            </button>
+            <button class="aj-video-btn" type="button" data-video="videos/video-tempos-dificeis.mp4" aria-label="Ver vídeo Tempos difíceis passam, pessoas fortes ficam">
+              <img src="images/video-poster-tempos.jpg" alt="Tempos difíceis passam, pessoas fortes ficam, Alexandre Jorge Mano">
+              <span class="aj-play">▶</span>
+              <span class="aj-video-title">Tempos difíceis passam, pessoas fortes ficam</span>
+            </button>
           </div>
         </div>
       </section>
 
-      <section id="faz" class="concept-collection collection-horizontal section-overlap">
-        <div class="collection-horizontal-wrapper">
-          <div class="horizontal-container swiper">
-            <h2 class="collection-title" style=""><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"><div class="masking-text"><div class="line" style="display: block; text-align: center; position: relative;"> O QUE FAZ </div></div></div></div></div></div></h2>
+      <section id="sobre" class="aj-section aj-jornal">
+        <div class="container">
+          <h2 class="aj-title">O Homem, por dentro.</h2>
+          <p class="aj-intro">Escrito como um jornal: uma parte à esquerda, outra à direita, com as palavras que importam em destaque.</p>
+          <article class="aj-news-item aj-left">
+            <img src="images/retrato-camisa-branca.jpg" alt="Alexandre, camisa branca e gravata azul">
+            <h3>Empresário</h3>
+            <p>Alexandre Jorge Mano é <em class="aj-destaque">fundador</em> e <em class="aj-destaque">CEO</em> da AJMANO Consultores, em Maputo. A empresa é a porta de entrada para quem quer investir em Moçambique, com assessoria estratégica, identificação de oportunidades, estruturação de projetos e apoio legal, fiscal e regulamentar.</p>
+          </article>
+          <article class="aj-news-item aj-right">
+            <img src="images/alexandre-maos-cruzadas.jpg" alt="Alexandre, de braços cruzados">
+            <h3>Consultor</h3>
+            <p>Como consultor, trabalha com empresas e investidores, e também com pequenas e médias empresas. O foco é simples: <em class="aj-destaque">abrir portas</em>, dar segurança a quem chega e transformar uma ideia num projeto que funciona em Moçambique.</p>
+          </article>
+          <article class="aj-news-item aj-left">
+            <img src="images/grupo-trabalho.jpg" alt="Alexandre em grupo, no trabalho">
+            <h3>Assessor do Ministro</h3>
+            <p>É assessor do Ministro da Juventude e Desporto, <em class="aj-destaque">Caifadine Paulo Manasse</em>, em emprego e formação profissional. Uma ponte entre o governo, os jovens e as empresas, em Moçambique e fora dele.</p>
+          </article>
+          <article class="aj-news-item aj-right">
+            <img src="images/moztech.jpg" alt="Alexandre a falar no MozTech">
+            <h3>Orador</h3>
+            <p>Como orador, fala em eventos e painéis sobre <em class="aj-destaque">liderança</em>, <em class="aj-destaque">inovação</em> e investimento — do MozTech ao COMARP Talks. A sua frase de assinatura é: <em class="aj-destaque">“Liderança é a capacidade de traduzir visão em realidade.”</em></p>
+          </article>
+        </div>
+      </section>
 
-            <div class="section-horizontal swiper-wrapper">
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> Assessor </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#201d15" data-desc="Assessor do Ministro da Juventude e Desporto, Caifadine Paulo Manasse, em emprego e formação profissional — uma ponte entre o governo, os jovens e as empresas.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/alexandre-camisa-bege.jpg" alt="Assessor" data-hover="images/alexandre-camisa-bege.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> Líder </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#181818" data-desc="«Liderança é a capacidade de traduzir visão em realidade.» A frase que assina como CEO da AJMANO, e que vive todos os dias: mesmo que ninguém veja, faça o seu melhor.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/retrato-camisa-branca.jpg" alt="Líder" data-hover="images/retrato-camisa-branca.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                              <div class="collection-card swiper-slide slideshow-list__el">
-                  <h3 class="card-title split-lines-mask reveal-lines" style=""><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> AJMANO </div></div><div class="masking-text"><div class="line" style="display: block; text-align: start; position: relative; translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"> </div></div></h3>
-                  <div class="collection-card-wrapper" style="--aspect: 0.85" data-bgcolor="#111612" data-desc="AJMANO Consultores, em Maputo: a porta de entrada para investir em Moçambique, com quem conhece o país por dentro. Visite ajmano.com e fale com a equipa.">
-                    <picture>
-                                            <img class="tile__img is-loaded" src="images/retrato-polo-preto.jpg" alt="AJMANO" data-hover="images/retrato-polo-preto.jpg" data-shape="images/octagon.jpg" draggable="false">
-                    </picture>
-                  </div>
-                </div>
-                          </div>
+      <section id="projetos" class="aj-section">
+        <div class="container">
+          <h2 class="aj-title">Os Projetos.</h2>
+          <p class="aj-intro">Não são secções vazias: são os trabalhos dele, com nome, lugar e o que cada um faz.</p>
+          <div class="aj-projetos">
+            <article class="aj-projeto">
+              <img src="images/retrato-fato-preto.jpg" alt="Alexandre, fato preto">
+              <h3>AJMANO Consultores</h3>
+              <p>AJMANO Consulting &amp; Advisory, Lda, em Maputo. Facilita o investimento em Moçambique: assessoria estratégica, oportunidades, projetos e apoio legal, fiscal e regulamentar. Site: ajmano.com. Email: info@ajmano.com.</p>
+            </article>
+            <article class="aj-projeto">
+              <img src="images/evento-ar-livre.jpg" alt="Alexandre em evento ao ar livre">
+              <h3>Assessoria ao Governo</h3>
+              <p>Assessor do Ministro da Juventude e Desporto, Caifadine Paulo Manasse. Trabalho em emprego e formação profissional, incluindo a visita oficial a Portugal sobre emprego e formação.</p>
+            </article>
+            <article class="aj-projeto">
+              <img src="images/painel-comarp.jpg" alt="Painel COMARP Talks">
+              <h3>COMARP Talks e MozTech</h3>
+              <p>Painéis e conversas que inspiram: comunicação, marketing e relações públicas, com Alexandre a falar para o público, em Maputo, sobre liderança e inovação.</p>
+            </article>
+            <article class="aj-projeto">
+              <img src="images/alexandre-oculos-camisa.jpg" alt="Alexandre, de óculos e camisa branca">
+              <h3>Superbrands Moçambique</h3>
+              <p>Conselheiro da Superbrands Moçambique, listado como consultor. Um reconhecimento do seu trabalho em comunicação e assessoria empresarial no país.</p>
+            </article>
           </div>
         </div>
       </section>
-    </main>
+
+      <section id="fotos" class="aj-section">
+        <div class="container">
+          <h2 class="aj-title">Capturado em câmara.</h2>
+          <p class="aj-intro">Arrasta para o lado, como um rolo de fotografias: retratos, eventos e painéis, todos inteiros, sem cortes.</p>
+        </div>
+        <div class="aj-film" role="region" aria-label="Rolo de fotografias do Alexandre">
+          <figure><img src="images/retrato-fato-preto.jpg" alt="Retrato, fato preto"><figcaption>Foto 1 · Retrato</figcaption></figure>
+          <figure><img src="images/retrato-camisa-branca.jpg" alt="Retrato, camisa branca"><figcaption>Foto 2 · Retrato</figcaption></figure>
+          <figure><img src="images/retrato-polo-preto.jpg" alt="Retrato, polo preto"><figcaption>Foto 3 · Retrato</figcaption></figure>
+          <figure><img src="images/alexandre-gravata-azul.jpg" alt="Gravata azul, braços cruzados"><figcaption>Foto 4 · Retrato</figcaption></figure>
+          <figure><img src="images/alexandre-maos-cruzadas.jpg" alt="Mãos cruzadas"><figcaption>Foto 5 · Retrato</figcaption></figure>
+          <figure><img src="images/alexandre-oculos-camisa.jpg" alt="Óculos, camisa branca"><figcaption>Foto 6 · Retrato</figcaption></figure>
+          <figure><img src="images/alexandre-camisa-bege.jpg" alt="Camisa bege"><figcaption>Foto 7 · Retrato</figcaption></figure>
+          <figure><img src="images/orador-yango.jpg" alt="Orador, com microfone"><figcaption>Foto 8 · Orador</figcaption></figure>
+          <figure><img src="images/moztech.jpg" alt="A falar no MozTech"><figcaption>Foto 9 · MozTech</figcaption></figure>
+          <figure><img src="images/orador-gravata-vermelha.jpg" alt="Orador, gravata vermelha"><figcaption>Foto 10 · Orador</figcaption></figure>
+          <figure><img src="images/auditorio.jpg" alt="Em auditório"><figcaption>Foto 11 · Auditório</figcaption></figure>
+          <figure><img src="images/grupo-trabalho.jpg" alt="Em grupo, no trabalho"><figcaption>Foto 12 · Em grupo</figcaption></figure>
+          <figure><img src="images/painel-comarp.jpg" alt="Painel COMARP Talks"><figcaption>Foto 13 · COMARP Talks</figcaption></figure>
+          <figure><img src="images/painel-comarp-publico.jpg" alt="COMARP Talks para o público"><figcaption>Foto 14 · COMARP Talks</figcaption></figure>
+          <figure><img src="images/evento-ar-livre.jpg" alt="Em evento ao ar livre"><figcaption>Foto 15 · Em evento</figcaption></figure>
+          <figure><img src="images/evento-ar-livre-2.jpg" alt="Em evento ao ar livre, com microfone"><figcaption>Foto 16 · Em evento</figcaption></figure>
+        </div>
+      </section>
+
+      <div class="aj-marquee" aria-hidden="true">
+        <div class="aj-marquee-inner"><span>AJMANO · Liderança · Visão · Investimento · Inovação · Moçambique · Comunicação · </span><span>AJMANO · Liderança · Visão · Investimento · Inovação · Moçambique · Comunicação · </span></div>
+      </div>
+
+      <section id="livro" class="aj-section">
+        <div class="container">
+          <h2 class="aj-title">O Livro de Alexandre.</h2>
+          <p class="aj-intro">Toca no livro para o abrir e virar as páginas, como um livro a sério.</p>
+          <div class="aj-book" id="ajBook">
+            <div class="aj-page aj-page-cover aj-active">
+              <p class="aj-book-kicker">O livro de</p>
+              <h3>ALEXANDRE<br>JORGE MANO</h3>
+              <p>Empresário · Consultor · Orador<br>Maputo · Moçambique</p>
+              <p class="aj-book-hint">Toca para abrir →</p>
+            </div>
+            <div class="aj-page">
+              <h3>A Visão</h3>
+              <p>“Liderança é a capacidade de traduzir visão em realidade.” É assim que Alexandre trabalha: uma ideia, um plano e um projeto que chega ao fim.</p>
+              <p class="aj-book-hint">Toca para virar a página →</p>
+            </div>
+            <div class="aj-page">
+              <h3>O Trabalho</h3>
+              <p>AJMANO Consultores, em Maputo. Investimento, assessoria e projetos em Moçambique, com quem conhece o país por dentro. E, ao mesmo tempo, assessoria ao Ministro da Juventude e Desporto.</p>
+              <p class="aj-book-hint">Toca para virar a página →</p>
+            </div>
+            <div class="aj-page">
+              <h3>A Palavra</h3>
+              <p>“Mesmo que ninguém veja, faça o seu melhor todos os dias.” E, como ele gosta de lembrar: inovação distingue um líder de um seguidor.</p>
+              <p>Contactos: Facebook, Instagram e LinkedIn no rodapé, e ajmano.com.</p>
+              <p class="aj-book-hint">Toca para voltar ao início ↺</p>
+            </div>
+          </div>
+          <div class="aj-book-controls">
+            <button type="button" id="ajBookPrev">← Página anterior</button>
+            <button type="button" id="ajBookNext">Próxima página →</button>
+          </div>
+        </div>
+      </section>
+
+</main>
   </div>
         
                           <footer id="footer">
@@ -560,4 +624,6 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 
 <canvas id="scene" data-engine="three.js r160" width="1080" height="2252" style="width: 384px; height: 801px;"></canvas><div class="scene-background"></div><link rel="stylesheet" href="css/scroll-fix.css?v=1">
 <script src="js/scroll-fix.js?v=1"></script>
+<link rel="stylesheet" href="css/aj-sections.css?v=1">
+<script src="js/aj-sections.js?v=1"></script>
 </body></html>
