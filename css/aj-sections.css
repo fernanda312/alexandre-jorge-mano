@@ -39,8 +39,8 @@
 /* Jornal: uma à esquerda, outra à direita, texto branco, outra tipologia */
 .aj-jornal { background: transparent; }
 .aj-news-item { display: flex; flex-direction: column; gap: 1rem; max-width: 88%; }
-.aj-news-item.aj-left { margin: 0 auto 4rem 0; }
-.aj-news-item.aj-right { margin: 0 0 4rem auto; }
+.aj-news-item.aj-left { margin: 0 auto 4rem -2rem; }
+.aj-news-item.aj-right { margin: 0 -2rem 4rem auto; }
 .aj-news-item img { width: 100%; height: auto; object-fit: contain; }
 .aj-news-item h3 {
   font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.6rem; margin: 0 0 1rem;
@@ -67,7 +67,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .aj-film figure { flex: 0 0 100vw; margin: 0; scroll-snap-align: start; text-align: center; }
-.aj-film img { height: auto; width: 100vw; max-width: none; object-fit: contain; border: none; outline: none; background: #000; display: block; }
+.aj-film img { height: auto; width: 100vw; max-width: none; object-fit: contain; border: 6px solid #111; outline: 1px solid #dac7a4; background: #000; display: block; box-sizing: border-box; }
 .aj-film figcaption { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: .9rem; margin-top: .5rem; }
 /* Scroll de palavras em degradê */
 .aj-marquee { overflow: hidden; background: transparent; padding: 1.5rem 0; }
@@ -144,5 +144,5 @@
 /* Desc sem vazio: o original tinha 10rem de espaço em baixo e o parágrafo invisível */
 .section-desc { padding: 6rem 0 !important; }
 .section-desc .line-seperate { margin: 2rem 0 !important; }
-.section-desc .p-desc { opacity: 1 !important; transform: none !important; translate: none !important; }
+.section-desc .p-desc { opacity: 1 !important; transform: none !important; translate: none !important; color: #fff !important; font-style: italic; margin-top: 1.5rem !important; line-height: 1.6; }
 
