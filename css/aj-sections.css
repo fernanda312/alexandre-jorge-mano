@@ -151,8 +151,8 @@
 .header__logo { max-width: 190px !important; width: 190px !important; }
 .header__logo svg { width: 100% !important; height: auto !important; }
 
-/* Só o hero: sem zoom, AJMANO acima da foto e sem espaço vazio depois */
-.section-intro { height: auto !important; min-height: 0 !important; padding-top: 90px !important; background: #000; }
-.section-intro .intro-wrapper { height: auto !important; background: #000; }
-.parallax-image { object-fit: contain !important; height: auto !important; width: 100% !important; display: block; }
-.section-intro .intro-scroll { bottom: 1.5rem !important; }
+/* Só o hero: foto estendida com IA para cima, enche o ecrã do topo, sem borda */
+.section-intro { height: 100vh !important; min-height: 0 !important; padding-top: 0 !important; background: #000; }
+.section-intro .intro-wrapper { height: 100% !important; background: #000; }
+.parallax-image { object-fit: cover !important; object-position: center center !important; height: 100vh !important; width: 100% !important; display: block; }
+.section-intro .intro-scroll { bottom: 2rem !important; }
