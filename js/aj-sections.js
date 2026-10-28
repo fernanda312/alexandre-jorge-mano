@@ -44,11 +44,7 @@
 (function () {
   var film = document.querySelector(".aj-film");
   if (!film) return;
-  var lastTouch = 0;
-  film.addEventListener("touchstart", function () { lastTouch = Date.now(); }, { passive: true });
-  film.addEventListener("wheel", function () { lastTouch = Date.now(); }, { passive: true });
   setInterval(function () {
-    if (Date.now() - lastTouch < 8000) return;
     var figs = film.querySelectorAll("figure");
     if (!figs.length) return;
     // Foto mais perto do centro agora, para avançar sempre para a seguinte, mesmo depois de arrastares
