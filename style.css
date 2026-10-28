@@ -1,0 +1,234 @@
+/* ALEXANDRE JORGE MANO · Maputo
+ * Visual igual ao do site JERRY: fundo escuro, dourado champanhe,
+ * títulos em serifada maiúscula, texto claro e fotos inteiras.
+ * Diferença propositada: aqui NÃO há scroll suave, animações de
+ * revelação nem coleções horizontais. O scroll é o nativo do
+ * telemóvel/navegador, por isso a página desce sempre, e as fotos
+ * aparecem sempre inteiras (object-fit: contain, sem zoom, sem corte).
+ */
+:root {
+  --bg: #252525;
+  --bg2: #1c1c1c;
+  --gold: #dac7a4;
+  --text: #ece5d8;
+  --muted: #b8ad9a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+body.menu-open { overflow: hidden; }
+a { color: var(--gold); }
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: var(--bg2);
+}
+
+/* Cabeçalho, igual ao JERRY: nome ao centro, menu à direita */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.4rem 1rem 0.8rem;
+  background: linear-gradient(180deg, rgba(37,37,37,.95), rgba(37,37,37,0));
+}
+.header-logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  padding-left: .35em;
+}
+.header-burger {
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: .5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.header-burger span {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+.header-burger[aria-expanded="true"] span:first-child { transform: rotate(45deg) translateY(4px); }
+.header-burger[aria-expanded="true"] span:last-child { transform: rotate(-45deg) translateY(-4px); }
+
+/* Menu de ecrã inteiro */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: var(--bg2);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+.menu.open { display: flex; }
+.menu a {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  text-align: center;
+}
+.menu small {
+  margin-top: 2rem;
+  color: var(--muted);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+/* Hero: foto inteira, sem zoom, sem corte */
+.hero {
+  padding-top: 4.5rem;
+  background: var(--bg2);
+}
+.hero img {
+  max-height: 78vh;
+  width: 100%;
+  object-fit: contain;
+}
+.hero-scroll {
+  text-align: center;
+  padding: 1.2rem 1rem 0.5rem;
+  color: var(--gold);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  font-size: .75rem;
+}
+
+/* Secções: uma debaixo da outra, a empilhar no telemóvel */
+.section {
+  padding: 3.5rem 1.4rem;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+.section-dark { background: var(--bg2); max-width: none; }
+.section-dark > * { max-width: 46rem; margin-left: auto; margin-right: auto; }
+.kicker {
+  color: var(--gold);
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  font-size: .75rem;
+  margin: 0 0 1rem;
+}
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  line-height: 1.05;
+  color: var(--gold);
+  margin: 0 0 1.5rem;
+}
+h1 { font-size: clamp(2.4rem, 10vw, 4.5rem); }
+h2 { font-size: clamp(1.9rem, 8vw, 3.2rem); }
+.section p { font-size: 1.05rem; margin: 0 0 1.2rem; }
+.section p.lead { font-size: 1.25rem; color: var(--text); }
+.muted { color: var(--muted); }
+
+/* Fotos dentro das secções: inteiras, com respiro */
+.photo { margin: 2rem 0; }
+.photo img { max-height: 80vh; }
+.photo figcaption {
+  margin-top: .6rem;
+  color: var(--muted);
+  font-size: .85rem;
+  letter-spacing: .05em;
+}
+
+/* Cartões de áreas / serviços */
+.cards { display: grid; gap: 1rem; margin-top: 2rem; }
+.card {
+  border: 1px solid rgba(218,199,164,.35);
+  padding: 1.4rem;
+  background: rgba(0,0,0,.15);
+}
+.card h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--gold);
+  margin: 0 0 .5rem;
+  font-size: 1.15rem;
+}
+.card p { margin: 0; font-size: 1rem; }
+
+/* Frases: o texto, e a imagem original dele, inteira */
+.quote {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.2rem;
+  margin: 2.5rem 0;
+}
+.quote p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--gold);
+  margin: 0 0 .5rem;
+}
+.quote cite { color: var(--muted); font-style: normal; letter-spacing: .1em; text-transform: uppercase; font-size: .85rem; }
+
+/* Galeria: uma foto debaixo da outra no telemóvel, duas colunas no PC */
+.gallery { display: grid; gap: 1.5rem; margin-top: 2rem; }
+.gallery img { max-height: 82vh; }
+
+/* Redes e contacto */
+.social-list { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: .8rem; }
+.social-list a {
+  display: block;
+  border: 1px solid rgba(218,199,164,.5);
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+.social-list a strong { color: var(--gold); display: block; text-transform: uppercase; letter-spacing: .08em; font-size: .9rem; }
+
+/* Rodapé, com o octógono do JERRY, agora com A */
+.footer {
+  background: var(--bg2);
+  text-align: center;
+  padding: 3rem 1.4rem 2.5rem;
+  color: var(--muted);
+}
+.footer .octagon {
+  width: 88px; height: 88px; margin: 0 auto 1.2rem;
+}
+.footer nav { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; justify-content: center; margin: 1.2rem 0; }
+.footer nav a { text-decoration: none; letter-spacing: .1em; text-transform: uppercase; font-size: .85rem; }
+
+@media (min-width: 760px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .gallery { grid-template-columns: 1fr 1fr; }
+  .section { padding: 4.5rem 2rem; }
+}
