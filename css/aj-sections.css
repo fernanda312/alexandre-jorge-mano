@@ -171,3 +171,6 @@
 /* Só o fim da página: sem espaço vazio depois do rodapé */
 #scene, .scene-background { display: none !important; height: 0 !important; }
 #footer { margin-bottom: 0 !important; padding-bottom: 2rem !important; }
+
+/* Correção da revisão: cabeçalho com fundo preto, para o AJMANO não ficar por cima do texto ao arrastar */
+header { background: #000 !important; }
