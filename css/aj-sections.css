@@ -121,3 +121,13 @@
   display: inline-flex; align-items: center; justify-content: center;
   width: 44px; height: 44px; border: 1px solid #fff; border-radius: 50%; font-size: .9rem; flex: 0 0 auto;
 }
+
+/* Títulos em destaque, em degradê que passa entre as letras (2026-10-28, a pedido da utilizadora) */
+.aj-title {
+  font-size: 2.4rem !important; font-weight: 900;
+  background: linear-gradient(90deg, #dac7a4, #ffffff, #b8860b, #dac7a4);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: aj-title-scroll 5s linear infinite;
+}
+@keyframes aj-title-scroll { to { background-position: 200% center; } }
