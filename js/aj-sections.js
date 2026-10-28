@@ -39,3 +39,20 @@
     if (prevBtn) prevBtn.addEventListener("click", function (e) { e.stopPropagation(); prev(); });
   }
 })();
+
+/* Rolo de fotos a passar sozinho (pausa uns segundos depois de tocares) */
+(function () {
+  var film = document.querySelector(".aj-film");
+  if (!film) return;
+  var lastTouch = 0;
+  film.addEventListener("touchstart", function () { lastTouch = Date.now(); }, { passive: true });
+  film.addEventListener("wheel", function () { lastTouch = Date.now(); }, { passive: true });
+  setInterval(function () {
+    if (Date.now() - lastTouch < 8000) return;
+    if (film.scrollLeft + film.clientWidth >= film.scrollWidth - 10) {
+      film.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      film.scrollBy({ left: film.clientWidth * 0.8, behavior: "smooth" });
+    }
+  }, 3500);
+})();
