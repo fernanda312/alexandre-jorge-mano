@@ -58,12 +58,12 @@
 .aj-projeto p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.1rem; line-height: 1.7; margin: 0; }
 /* Rolo de fotografias, como capturado em câmara */
 .aj-film {
-  display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 0; background: #000;
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 1.5rem 1rem; background: #000;
   -webkit-overflow-scrolling: touch;
 }
-.aj-film figure { flex: 0 0 100vw; margin: 0; scroll-snap-align: start; text-align: center; }
-.aj-film img { height: auto; width: 100vw; max-width: none; object-fit: contain; border: none; outline: none; background: #000; display: block; }
+.aj-film figure { flex: 0 0 auto; margin: 0; scroll-snap-align: center; text-align: center; }
+.aj-film img { height: auto; width: 85vw; max-width: 520px; object-fit: contain; border: 6px solid #111; outline: 1px solid #dac7a4; background: #111; }
 .aj-film figcaption { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: .9rem; margin-top: .5rem; }
 /* Scroll de palavras em degradê */
 .aj-marquee { overflow: hidden; background: transparent; padding: 1.5rem 0; }
@@ -76,7 +76,7 @@
 @keyframes aj-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 /* Livro que se abre */
 .aj-book {
-  position: relative; max-width: 520px; min-height: 0; margin: 0 auto;
+  position: relative; max-width: 520px; min-height: 420px; margin: 0 auto;
   perspective: 1200px; cursor: pointer; background: #2b2118;
   border: 2px solid #dac7a4; padding: 2rem 1.5rem; overflow: hidden;
 }
@@ -86,7 +86,6 @@
 .aj-page h3 { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.8rem; margin: 0 0 1rem; }
 .aj-page p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.15rem; line-height: 1.7; }
 .aj-book-kicker { color: #dac7a4; letter-spacing: .2em; text-transform: uppercase; }
-.aj-book-cover-img { width: 100%; height: auto; display: block; margin: 0 0 1.5rem; }
 .aj-book-hint { color: #dac7a4; margin-top: 2rem; }
 .aj-book-controls { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; }
 .aj-book-controls button {
