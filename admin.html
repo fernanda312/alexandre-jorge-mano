@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel admin — Alexandre Jorge Mano</title>
+<style>
+  body { background:#000; color:#fff; font-family: Georgia, serif; margin:0; padding:1.5rem 1rem 4rem; }
+  h1 { color:#dac7a4; font-size:1.8rem; text-align:center; }
+  h2 { color:#dac7a4; font-size:1.3rem; border-top:1px solid #dac7a4; padding-top:1.5rem; margin-top:2rem; }
+  label { display:block; margin:1rem 0 .3rem; color:#dac7a4; font-size:.95rem; }
+  input, select, textarea { width:100%; box-sizing:border-box; padding:.7rem; background:#111; color:#fff; border:1px solid #dac7a4; font-family: Georgia, serif; font-size:1rem; }
+  textarea { min-height:5rem; }
+  button { background:#dac7a4; color:#000; border:none; padding:.9rem 1.2rem; font-family: Georgia, serif; font-size:1rem; cursor:pointer; margin:.5rem .5rem .5rem 0; }
+  button.sec { background:#222; color:#dac7a4; border:1px solid #dac7a4; }
+  .item { border:1px solid #333; padding:1rem; margin:1rem 0; }
+  .note { background:#111; padding:1rem; line-height:1.6; }
+  #msg { color:#dac7a4; font-weight:bold; min-height:1.5rem; }
+  a { color:#dac7a4; }
+</style>
+</head>
+<body>
+<h1>Painel admin — Alexandre Jorge Mano</h1>
+<p class="note">Aqui muda-se tudo no site: foto do hero, textos, fotos da galeria, jornal, projetos, livro, vídeos, redes sociais e rodapé. Carrega em <b>Guardar</b> e as mudanças aparecem logo no site, neste navegador. Para as mudanças ficarem para toda a gente, carrega em <b>Copiar dados</b> e envia esses dados à pessoa que trata do site, para ela os pôr no site de forma permanente. <b>Repor original</b> volta a tudo como estava.</p>
+<p id="msg"></p>
+<p>
+  <button type="button" id="btnSave">Guardar</button>
+  <a href="./"><button type="button">Ver site</button></a>
+  <button type="button" class="sec" id="btnCopy">Copiar dados</button>
+  <button type="button" class="sec" id="btnReset">Repor original</button>
+</p>
+
+<h2>Topo e hero</h2>
+<label>Texto AJMANO do topo</label><input id="f-logo">
+<label>Foto do hero</label><select id="f-hero"></select>
+
+<h2>“Alexandre é mais do que um empresário”</h2>
+<label>Título, linha 1</label><input id="f-desc1">
+<label>Título, linha 2</label><input id="f-desc2">
+<label>Título, linha 3</label><input id="f-desc3">
+<label>Citação (sem aspas, elas entram sozinhas)</label><textarea id="f-quote"></textarea>
+
+<h2>Galeria de fotos (passa sozinha)</h2>
+<div id="galleryList"></div>
+<button type="button" class="sec" id="btnAddPhoto">Adicionar foto</button>
+
+<h2>Quem é Alexandre</h2>
+<label>Título da secção</label><input id="f-jornalTitle">
+<label>Texto por baixo do título</label><textarea id="f-jornalIntro"></textarea>
+<div id="jornalList"></div>
+
+<h2>Os Projetos</h2>
+<label>Título da secção</label><input id="f-projetosTitle">
+<label>Texto por baixo do título</label><textarea id="f-projetosIntro"></textarea>
+<div id="projetosList"></div>
+
+<h2>O Livro</h2>
+<label>Título da secção</label><input id="f-livroTitle">
+<label>Texto por baixo do título</label><textarea id="f-livroIntro"></textarea>
+<div id="livroList"></div>
+<label>Última página — contactos</label><textarea id="f-livroContacto"></textarea>
+
+<h2>Vídeos</h2>
+<label>Título da secção</label><input id="f-videosTitle">
+<div id="videosList"></div>
+
+<h2>Faixa a passar (marquee)</h2>
+<label>Palavras da faixa</label><input id="f-marquee">
+
+<h2>Redes sociais</h2>
+<label>Facebook</label><input id="f-soc0">
+<label>Instagram</label><input id="f-soc1">
+<label>LinkedIn</label><input id="f-soc2">
+<label>AJMANO Consultores (site)</label><input id="f-soc3">
+
+<h2>Rodapé</h2>
+<label>Texto do copyright</label><input id="f-copyright">
+
+<p>
+  <button type="button" id="btnSave2">Guardar</button>
+  <a href="./"><button type="button">Ver site</button></a>
+</p>
+
+<script src="js/aj-admin.js?v=1"></script>
+<script>
+(function () {
+  var A = window.AJMANO_ADMIN;
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem(A.KEY)) || null; } catch (e) {}
+  var d = saved || JSON.parse(JSON.stringify(A.DEFAULTS));
+  function opt(sel, val, list) {
+    sel.innerHTML = "";
+    list.forEach(function (v) {
+      var o = document.createElement("option"); o.value = v; o.textContent = v;
+      if (v === val) o.selected = true; sel.appendChild(o);
+    });
+  }
+  function val(id) { return document.getElementById(id).value; }
+  function set(id, v) { document.getElementById(id).value = v || ""; }
+  // Topo e desc
+  set("f-logo", d.logo); opt(document.getElementById("f-hero"), d.hero, A.IMAGES);
+  set("f-desc1", d.descTitle[0]); set("f-desc2", d.descTitle[1]); set("f-desc3", d.descTitle[2]);
+  set("f-quote", d.descQuote);
+  // Galeria
+  var gList = document.getElementById("galleryList");
+  function renderGallery() {
+    gList.innerHTML = "";
+    d.gallery.forEach(function (src, i) {
+      var div = document.createElement("div"); div.className = "item";
+      div.innerHTML = "<label>Foto " + (i + 1) + "</label>";
+      var sel = document.createElement("select"); opt(sel, src, A.IMAGES);
+      sel.onchange = function () { d.gallery[i] = sel.value; };
+      var up = document.createElement("button"); up.type = "button"; up.className = "sec"; up.textContent = "↑";
+      up.onclick = function () { if (i > 0) { var t = d.gallery[i-1]; d.gallery[i-1] = d.gallery[i]; d.gallery[i] = t; renderGallery(); } };
+      var down = document.createElement("button"); down.type = "button"; down.className = "sec"; down.textContent = "↓";
+      down.onclick = function () { if (i < d.gallery.length - 1) { var t = d.gallery[i+1]; d.gallery[i+1] = d.gallery[i]; d.gallery[i] = t; renderGallery(); } };
+      var del = document.createElement("button"); del.type = "button"; del.className = "sec"; del.textContent = "Tirar";
+      del.onclick = function () { d.gallery.splice(i, 1); renderGallery(); };
+      div.appendChild(sel); div.appendChild(up); div.appendChild(down); div.appendChild(del);
+      gList.appendChild(div);
+    });
+  }
+  renderGallery();
+  document.getElementById("btnAddPhoto").onclick = function () { d.gallery.push(A.IMAGES[0]); renderGallery(); };
+  // Listas de blocos (jornal, projetos, livro, vídeos)
+  function renderBlocks(containerId, list, withPhoto, withVideo) {
+    var c = document.getElementById(containerId); c.innerHTML = "";
+    list.forEach(function (it, i) {
+      var div = document.createElement("div"); div.className = "item";
+      var html = "<label>Título</label><input data-k=\"title\" value=\"\">";
+      if (withPhoto) html += "<label>Foto</label><select data-k=\"photo\"></select>";
+      if (withVideo) html += "<label>Vídeo</label><select data-k=\"video\"></select>";
+      html += "<label>Texto</label><textarea data-k=\"text\"></textarea>";
+      div.innerHTML = html;
+      div.querySelector('[data-k="title"]').value = it.title || "";
+      div.querySelector('[data-k="title"]').oninput = function (e) { it.title = e.target.value; };
+      if (withPhoto) { var s = div.querySelector('[data-k="photo"]'); opt(s, it.photo, A.IMAGES); s.onchange = function () { it.photo = s.value; }; }
+      if (withVideo) { var v = div.querySelector('[data-k="video"]'); opt(v, it.video, A.VIDEOS); v.onchange = function () { it.video = v.value; }; }
+      div.querySelector('[data-k="text"]').value = it.text || "";
+      div.querySelector('[data-k="text"]').oninput = function (e) { it.text = e.target.value; };
+      c.appendChild(div);
+    });
+  }
+  set("f-jornalTitle", d.jornalTitle); set("f-jornalIntro", d.jornalIntro);
+  renderBlocks("jornalList", d.jornal, true, false);
+  set("f-projetosTitle", d.projetosTitle); set("f-projetosIntro", d.projetosIntro);
+  renderBlocks("projetosList", d.projetos, true, false);
+  set("f-livroTitle", d.livroTitle); set("f-livroIntro", d.livroIntro);
+  renderBlocks("livroList", d.livro, false, false);
+  set("f-livroContacto", d.livroContacto);
+  set("f-videosTitle", d.videosTitle);
+  renderBlocks("videosList", d.videos, false, true);
+  set("f-marquee", d.marquee);
+  set("f-soc0", d.social[0]); set("f-soc1", d.social[1]); set("f-soc2", d.social[2]); set("f-soc3", d.social[3]);
+  set("f-copyright", d.copyright);
+  function collect() {
+    d.logo = val("f-logo"); d.hero = val("f-hero");
+    d.descTitle = [val("f-desc1"), val("f-desc2"), val("f-desc3")];
+    d.descQuote = val("f-quote");
+    d.jornalTitle = val("f-jornalTitle"); d.jornalIntro = val("f-jornalIntro");
+    d.projetosTitle = val("f-projetosTitle"); d.projetosIntro = val("f-projetosIntro");
+    d.livroTitle = val("f-livroTitle"); d.livroIntro = val("f-livroIntro");
+    d.livroContacto = val("f-livroContacto");
+    d.videosTitle = val("f-videosTitle");
+    d.marquee = val("f-marquee");
+    d.social = [val("f-soc0"), val("f-soc1"), val("f-soc2"), val("f-soc3")];
+    d.copyright = val("f-copyright");
+    return d;
+  }
+  function save() {
+    localStorage.setItem(A.KEY, JSON.stringify(collect()));
+    document.getElementById("msg").textContent = "Guardado. Abre o site neste navegador para veres as mudanças.";
+  }
+  document.getElementById("btnSave").onclick = save;
+  document.getElementById("btnSave2").onclick = save;
+  document.getElementById("btnReset").onclick = function () {
+    localStorage.removeItem(A.KEY);
+    document.getElementById("msg").textContent = "Original reposto. Recarrega esta página e o site.";
+    location.reload();
+  };
+  document.getElementById("btnCopy").onclick = function () {
+    var txt = JSON.stringify(collect());
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(txt).then(function () {
+        document.getElementById("msg").textContent = "Dados copiados. Envia-os à pessoa que trata do site.";
+      });
+    } else {
+      document.getElementById("msg").textContent = txt;
+    }
+  };
+})();
+</script>
+</body>
+</html>
