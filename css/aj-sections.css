@@ -1,6 +1,6 @@
 /* AJMANO — novas secções depois do hero e de "Alexandre é mais do que um empresário".
  * Hero e essa secção ficam intocados. Estas regras só tocam nas secções novas. */
-.aj-section { background: #000; color: #fff; padding: 3.5rem 1rem; }
+.aj-section { background: #000; color: #fff; padding: 4.5rem 1rem; }
 .aj-section .container { max-width: 92%; margin: 0 auto; }
 .aj-title {
   font-family: Georgia, "Times New Roman", serif; color: #dac7a4;
@@ -38,28 +38,28 @@
 }
 /* Jornal: uma à esquerda, outra à direita, texto branco, outra tipologia */
 .aj-jornal { background: transparent; }
-.aj-news-item { display: flex; flex-direction: column; gap: 1rem; max-width: 88%; }
-.aj-news-item.aj-left { margin: 0 auto 4rem -2rem; }
-.aj-news-item.aj-right { margin: 0 -2rem 4rem auto; }
+.aj-news-item { display: flex; flex-direction: column; gap: 1.5rem; max-width: 88%; }
+.aj-news-item.aj-left { margin: 0 auto 5rem -2rem; }
+.aj-news-item.aj-right { margin: 0 -2rem 5rem auto; }
 .aj-news-item img { width: 100%; height: auto; object-fit: contain; }
 .aj-news-item h3 {
   font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.6rem; margin: 0 0 1rem;
 }
 .aj-projeto h3 { font-family: Georgia, "Times New Roman", serif; color: #dac7a4; font-size: 1.5rem; margin: 0 0 1rem; }
 .aj-news-item p {
-  font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.15rem; line-height: 1.7; margin: 0;
+  font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.15rem; line-height: 1.9; margin: 0;
 }
 .aj-left { align-items: flex-start; text-align: left; }
 .aj-right { align-items: flex-end; text-align: right; }
 .aj-destaque { color: #dac7a4; font-size: 1.25em; font-style: normal; font-weight: 700; }
 /* Projetos */
-.aj-projetos { display: flex; flex-direction: column; gap: 2.5rem; align-items: center; }
+.aj-projetos { display: flex; flex-direction: column; gap: 3.5rem; align-items: center; }
 .aj-projeto { max-width: 88%; }
 .aj-projeto:nth-child(odd) { margin-left: 0; margin-right: auto; text-align: left; }
 .aj-projeto:nth-child(even) { margin-left: auto; margin-right: 0; text-align: right; }
 .aj-projeto img { width: 100%; height: auto; object-fit: contain; margin-bottom: 1rem; }
 
-.aj-projeto p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.1rem; line-height: 1.7; margin: 0; }
+.aj-projeto p { font-family: Georgia, "Times New Roman", serif; color: #fff; font-size: 1.1rem; line-height: 1.9; margin: 0; }
 /* Rolo de fotografias, como capturado em câmara */
 .aj-film {
   display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -159,3 +159,15 @@
 
 /* Só a galeria: sem título nem intro, só fotos em fundo preto, justinho */
 #fotos { background: #000 !important; padding-top: 0 !important; padding-bottom: 3.5rem !important; }
+
+/* Só o título "ALEXANDRE é mais do que um empresário": degradê a passar nas letras + entrada ao arrastar */
+.desc-title { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+.desc-title.aj-in { opacity: 1; transform: none; }
+.desc-title .line {
+  background: linear-gradient(90deg, #dac7a4, #ffffff, #b8860b, #dac7a4);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: aj-title-scroll 5s linear infinite;
+}
+/* Só o fim da página: sem espaço vazio depois do rodapé */
+#scene, .scene-background { display: none !important; height: 0 !important; }
+#footer { margin-bottom: 0 !important; padding-bottom: 2rem !important; }
