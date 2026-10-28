@@ -150,3 +150,7 @@
 /* Só o AJMANO do topo, maior */
 .header__logo { max-width: 190px !important; width: 190px !important; }
 .header__logo svg { width: 100% !important; height: auto !important; }
+
+/* Só o hero: foto inteira, sem ampliar nem cortar, sem perder qualidade */
+.parallax-image { object-fit: contain !important; height: 100vh !important; background: #000; }
+.intro-wrapper { background: #000; }
