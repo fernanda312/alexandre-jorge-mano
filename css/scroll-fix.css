@@ -43,3 +43,15 @@ html.active {
   gap: 1rem 1.5rem;
   justify-content: center;
 }
+
+/* Correção telemóvel (2026-10-28, após capturas da utilizadora):
+ * - hero: a cara fica no centro do enquadramento, não cortada em cima;
+ * - vídeo vertical: altura automática, inteiro, sem o zoom de 130% do original. */
+.parallax-image {
+  object-position: center 15% !important;
+}
+.concept-video video {
+  height: auto !important;
+  max-height: 90vh;
+  object-fit: contain !important;
+}
