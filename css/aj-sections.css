@@ -174,3 +174,8 @@
 
 /* Correção da revisão: cabeçalho com fundo preto, para o AJMANO não ficar por cima do texto ao arrastar */
 header { background: #000 !important; }
+
+/* Só o rodapé: fundo preto como o resto (não cinzento) e sem o vazio grande por dentro */
+#footer { background: #000 !important; padding: 2rem 0 !important; }
+#footer .footer-nav { margin: 2rem 0 !important; }
+#footer .footer-policies { margin-top: 2rem !important; margin-bottom: 1rem !important; }
