@@ -208,3 +208,51 @@ img {
     gap: 0.5rem;
   }
 }
+
+/* ALEXANDRE — 2026-10-28, após verificação: as coleções horizontais
+ * do JERRY cortavam o terceiro cartão à direita e exigiam scroll
+ * horizontal, e as faixas de largura total cortavam as fotos.
+ * Por isso as coleções passam a empilhar em TODAS as larguras
+ * (não só no telemóvel) e a faixa larga mostra a foto inteira. */
+.collection-horizontal,
+.collection-horizontal-first {
+  height: auto !important;
+  padding: 2rem 1rem !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+.collection-horizontal-wrapper {
+  flex-direction: column !important;
+  gap: 2rem !important;
+  height: auto !important;
+}
+.collection-horizontal .horizontal-container {
+  height: auto !important;
+  margin: 0 !important;
+  width: 100% !important;
+  overflow: visible !important;
+}
+.section-horizontal {
+  flex-direction: column !important;
+  gap: 2.5rem !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+}
+.collection-card {
+  width: 100% !important;
+  height: auto !important;
+}
+.collection-card-wrapper {
+  height: auto !important;
+}
+.collection-horizontal-full {
+  margin: 0 !important;
+  height: auto !important;
+}
+.collection-horizontal-full img {
+  height: auto !important;
+  max-height: 80vh !important;
+  width: 100% !important;
+  object-fit: contain !important;
+}
