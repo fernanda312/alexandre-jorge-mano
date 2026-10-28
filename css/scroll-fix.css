@@ -256,3 +256,24 @@ img {
   width: 100% !important;
   object-fit: contain !important;
 }
+
+/* Vídeos do Alexandre (Instagram, enviados pela utilizadora):
+ * verticais, inteiros, sem zoom nem cortes, com play do próprio vídeo. */
+.aj-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.aj-videos video {
+  width: 100%;
+  max-width: 420px;
+  max-height: 75vh;
+  object-fit: contain;
+  background: #000;
+}
+.arock-link {
+  color: #dac7a4;
+  text-decoration: none;
+}
