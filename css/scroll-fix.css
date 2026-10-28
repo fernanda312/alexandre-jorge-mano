@@ -277,3 +277,29 @@ img {
   color: #dac7a4;
   text-decoration: none;
 }
+
+/* Galeria nova (12 fotos) + hero mais baixo de verdade:
+ * a margem empurra a foto para baixo e o "Descer" passa para
+ * baixo da foto, em vez de ficar por cima dela. */
+.section-intro .intro-wrapper .parallax-image {
+  margin-top: 10vh !important;
+  max-height: 62vh !important;
+}
+.section-intro .intro-scroll {
+  position: relative !important;
+  bottom: auto !important;
+  margin-top: 1rem;
+}
+.aj-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.aj-gallery img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
