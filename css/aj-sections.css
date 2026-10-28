@@ -1,6 +1,6 @@
 /* AJMANO — novas secções depois do hero e de "Alexandre é mais do que um empresário".
  * Hero e essa secção ficam intocados. Estas regras só tocam nas secções novas. */
-.aj-section { background: #000; color: #fff; padding: 1.5rem 1rem; }
+.aj-section { background: transparent; color: #fff; padding: 1.5rem 1rem; }
 .aj-section .container { max-width: 92%; margin: 0 auto; }
 .aj-title {
   font-family: Georgia, "Times New Roman", serif; color: #dac7a4;
@@ -144,3 +144,8 @@
 .section-desc { padding: 2rem 0 0.5rem !important; }
 .section-desc .line-seperate { margin: 1.5rem 0 !important; }
 .section-desc .p-desc { opacity: 1 !important; transform: none !important; translate: none !important; }
+
+/* Degradê único e contínuo em toda a página — não recomeça em cada secção, por isso não há faixas */
+html, body { background: linear-gradient(180deg, #000 0%, #222 25%, #000 50%, #262626 75%, #000 100%) !important; }
+.section-desc { background-color: transparent !important; }
+.aj-film { background: transparent; }
