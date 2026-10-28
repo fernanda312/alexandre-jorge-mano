@@ -52,7 +52,7 @@
     if (film.scrollLeft + film.clientWidth >= film.scrollWidth - 10) {
       film.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-      var first = film.querySelector("figure"); film.scrollBy({ left: first ? first.clientWidth : film.clientWidth, behavior: "smooth" });
+      film.scrollBy({ left: film.clientWidth * 0.8, behavior: "smooth" });
     }
-  }, 3000);
+  }, 3500);
 })();
